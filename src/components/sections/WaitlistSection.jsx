@@ -14,21 +14,23 @@ export default function WaitlistSection() {
   const [email, setEmail] = useState("");
 
   const handleSubmit = async () => {
-    if (!email) return;
+    if (!email.trim()) return;
     dispatch(setLoading());
     dispatch(clearError());
+
     const { error: serverError } = await supabase
       .from("waitlist")
       .insert([{ email }]);
 
     if (serverError) {
-      console.error("Submission error:", error.message);
-      dispatch(setError(error));
+      console.error("Submission error:", serverError.message);
+      dispatch(setError(serverError));
     } else {
       dispatch(setSubmitted());
       console.log("Email submitted:", email);
     }
-    dispatch(setLoading());
+
+    dispatch(setLoading()); // Toggle loading state off
   };
 
   return (
@@ -36,23 +38,28 @@ export default function WaitlistSection() {
       id="waitlist"
       className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-900 to-gray-800"
     >
-      <div className="max-w-4xl mx-auto text-center space-y-8">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
-          Your academic goals deserve tools to match your ambition.
-        </h2>
-        <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-          Join thousands of Nigerian students who are taking control of their
-          academic future.
-        </p>
+      <div className="max-w-4xl mx-auto text-center space-y-10">
+        {/* Headline */}
+        <div className="space-y-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
+            Your academic goals deserve tools to match your ambition.
+          </h2>
+          <p className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto">
+            Join thousands of Nigerian students taking control of their academic
+            future.
+          </p>
+        </div>
 
+        {/* Form or Confirmation */}
         {!submitted ? (
           <>
             {error && (
               <p className="text-base text-red-400">
-                Error submitting email. Ensure a unique email is inputed!
+                Error submitting email. Please try again with a unique email
+                address.
               </p>
             )}
-            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto w-full">
               <input
                 type="email"
                 placeholder="Enter your email"
@@ -63,25 +70,28 @@ export default function WaitlistSection() {
               <button
                 onClick={handleSubmit}
                 disabled={loading}
-                className="px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-500 text-white font-semibold rounded-lg hover:from-pink-600 hover:to-purple-600 transition-all duration-300 disabled:opacity-50 whitespace-nowrap"
+                className="px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-500 text-white font-semibold rounded-lg hover:from-pink-600 hover:to-purple-600 transition duration-300 disabled:opacity-50 whitespace-nowrap"
               >
                 {loading ? "Joining..." : "Join Waitlist"}
               </button>
             </div>
           </>
         ) : (
-          <div className="bg-green-500/20 border border-green-500/50 rounded-lg p-6 max-w-md mx-auto">
+          <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-6 max-w-md mx-auto space-y-2">
             <p className="text-green-400 font-semibold text-lg">
               🎉 You're all set!
             </p>
-            <p className="text-gray-300 mt-2">
-              We'll email you the moment Grade Vision is ready.
+            <p className="text-gray-300">
+              We'll email you the moment{" "}
+              <span className="font-medium text-white">Grade Vision</span>{" "}
+              launches.
             </p>
           </div>
         )}
 
+        {/* Fine Print */}
         <p className="text-sm text-gray-500 pt-6">
-          Free to join • No spam • Nigerian students first
+          Free to join • No spam • Built for Nigerian students
         </p>
       </div>
     </section>

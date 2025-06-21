@@ -32,7 +32,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
+    <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-24 pb-16 sm:pt-32 sm:pb-24">
       <GradientOverlay />
       <div className="relative z-10 text-center max-w-4xl mx-auto space-y-8">
         <div className="space-y-4">
@@ -41,7 +41,7 @@ export default function Hero() {
             <br />
             <span className="text-pink-400">Let's help you finish strong.</span>
           </h1>
-          <p className="text-xl sm:text-2xl text-gray-300 max-w-2xl mx-auto">
+          <p className="text-base sm:text-xl text-gray-300 max-w-xl mx-auto mt-4 sm:mt-6">
             Set your CGPA goal. Forecast your semester. Hit your academic
             target.
           </p>
@@ -58,14 +58,14 @@ export default function Hero() {
               </p>
             </div>
           ) : (
-            <>
+            <div className="max-w-md w-full mx-auto">
               {error && (
                 <p className="text-base text-red-400">
                   Error submitting email. Ensure a unique email is inputed!
                 </p>
               )}
               <EmailForm onSubmit={handleEmailSubmit} loading={loading} />
-            </>
+            </div>
           )}
         </div>
       </div>
