@@ -64,7 +64,7 @@ export default function SolutionSection() {
                 <li className="flex items-center space-x-3">
                   <Eye className="w-5 h-5 text-pink-400" />
                   <span className="text-gray-300">
-                    4.0 and 5.0 grading systems supported
+                    5.0 grading systems supported
                   </span>
                 </li>
                 <li className="flex items-center space-x-3">
