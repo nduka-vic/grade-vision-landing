@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setSubmitted, setLoading, setError, clearError } from "../../store/waitlistSlice";
+import {
+  setSubmitted,
+  setLoading,
+  setError,
+  clearError,
+} from "../../store/waitlistSlice";
 import { supabase } from "../../lib/supabaseClient";
 
 export default function WaitlistSection() {
@@ -8,24 +13,17 @@ export default function WaitlistSection() {
   const { submitted, loading, error } = useSelector((state) => state.waitlist);
   const [email, setEmail] = useState("");
 
-  //   const [submitted, setSubmitted] = useState(false);
-  //   const [loading, setLoading] = useState(false);
-
   const handleSubmit = async () => {
     if (!email) return;
-    // setLoading(true);
-    // // Simulate API request
-    // await new Promise((res) => setTimeout(res, 1000));
-    // setLoading(false);
-    // setSubmitted(true);
     dispatch(setLoading());
-    dispatch(clearError())
-    const { error } = await supabase.from("waitlist").insert([{ email }]);
+    dispatch(clearError());
+    const { error: serverError } = await supabase
+      .from("waitlist")
+      .insert([{ email }]);
 
-    if (error) {
+    if (serverError) {
       console.error("Submission error:", error.message);
       dispatch(setError(error));
-      // You can show an error toast or message here
     } else {
       dispatch(setSubmitted());
       console.log("Email submitted:", email);
@@ -48,28 +46,28 @@ export default function WaitlistSection() {
         </p>
 
         {!submitted ? (
-            <>
+          <>
             {error && (
-                <p className="text-base text-red-400">
-                  Error submitting email. Ensure a unique email is inputed!
-                </p>
-              )}
-          <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="flex-1 px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
-            />
-            <button
-              onClick={handleSubmit}
-              disabled={loading}
-              className="px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-500 text-white font-semibold rounded-lg hover:from-pink-600 hover:to-purple-600 transition-all duration-300 disabled:opacity-50 whitespace-nowrap"
-            >
-              {loading ? "Joining..." : "Join Waitlist"}
-            </button>
-          </div>
+              <p className="text-base text-red-400">
+                Error submitting email. Ensure a unique email is inputed!
+              </p>
+            )}
+            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="flex-1 px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+              />
+              <button
+                onClick={handleSubmit}
+                disabled={loading}
+                className="px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-500 text-white font-semibold rounded-lg hover:from-pink-600 hover:to-purple-600 transition-all duration-300 disabled:opacity-50 whitespace-nowrap"
+              >
+                {loading ? "Joining..." : "Join Waitlist"}
+              </button>
+            </div>
           </>
         ) : (
           <div className="bg-green-500/20 border border-green-500/50 rounded-lg p-6 max-w-md mx-auto">

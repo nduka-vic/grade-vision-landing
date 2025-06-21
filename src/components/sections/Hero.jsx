@@ -1,4 +1,3 @@
-// components/sections/Hero.jsx
 import React, { useState } from "react";
 import GradientOverlay from "../GradientOverlay";
 import EmailForm from "../EmailForm";
@@ -14,25 +13,17 @@ import { supabase } from "../../lib/supabaseClient";
 export default function Hero() {
   const dispatch = useDispatch();
   const { submitted, loading, error } = useSelector((state) => state.waitlist);
-  // const [error, setError] = useState("");
-  // const [submitted, setSubmitted] = useState(false);
 
   const handleEmailSubmit = async (email) => {
-    // setLoading(true);
-    // // Simulate API call
-    // await new Promise((resolve) => {
-
-    //   setTimeout(resolve, 1000)});
-    // setLoading(false);
-    // setSubmitted(true);
     dispatch(setLoading());
     dispatch(clearError());
-    const { error } = await supabase.from("waitlist").insert([{ email }]);
+    const { error: serverError } = await supabase
+      .from("waitlist")
+      .insert([{ email }]);
 
-    if (error) {
+    if (serverError) {
       console.error("Submission error:", error.message);
       dispatch(setError(error));
-      // You can show an error toast or message here
     } else {
       dispatch(setSubmitted());
       console.log("Email submitted:", email);
