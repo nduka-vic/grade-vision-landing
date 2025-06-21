@@ -3,12 +3,18 @@ import React, { useState } from "react";
 import GradientOverlay from "../GradientOverlay";
 import EmailForm from "../EmailForm";
 import { useSelector, useDispatch } from "react-redux";
-import { setSubmitted, stopLoading } from "../../store/waitlistSlice";
+import {
+  setSubmitted,
+  setLoading,
+  setError,
+  clearError,
+} from "../../store/waitlistSlice";
+import { supabase } from "../../lib/supabaseClient";
 
 export default function Hero() {
   const dispatch = useDispatch();
-  const { submitted, loading } = useSelector((state) => state.waitlist);
-  // const [loading, setLoading] = useState(false);
+  const { submitted, loading, error } = useSelector((state) => state.waitlist);
+  // const [error, setError] = useState("");
   // const [submitted, setSubmitted] = useState(false);
 
   const handleEmailSubmit = async (email) => {
@@ -19,9 +25,19 @@ export default function Hero() {
     //   setTimeout(resolve, 1000)});
     // setLoading(false);
     // setSubmitted(true);
-    dispatch(setSubmitted());
-    console.log("Email submitted:", email);
-    dispatch(stopLoading());
+    dispatch(setLoading());
+    dispatch(clearError());
+    const { error } = await supabase.from("waitlist").insert([{ email }]);
+
+    if (error) {
+      console.error("Submission error:", error.message);
+      dispatch(setError(error));
+      // You can show an error toast or message here
+    } else {
+      dispatch(setSubmitted());
+      console.log("Email submitted:", email);
+    }
+    dispatch(setLoading());
   };
 
   return (
@@ -51,7 +67,14 @@ export default function Hero() {
               </p>
             </div>
           ) : (
-            <EmailForm onSubmit={handleEmailSubmit} loading={loading} />
+            <>
+              {error && (
+                <p className="text-base text-red-400">
+                  Error submitting email. Ensure a unique email is inputed!
+                </p>
+              )}
+              <EmailForm onSubmit={handleEmailSubmit} loading={loading} />
+            </>
           )}
         </div>
       </div>

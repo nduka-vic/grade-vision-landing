@@ -1,13 +1,13 @@
-// src/sections/WaitlistSection.jsx
-
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setSubmitted, stopLoading } from "../../store/waitlistSlice";
+import { setSubmitted, setLoading, setError, clearError } from "../../store/waitlistSlice";
+import { supabase } from "../../lib/supabaseClient";
 
 export default function WaitlistSection() {
   const dispatch = useDispatch();
-  const { submitted, loading } = useSelector((state) => state.waitlist);
+  const { submitted, loading, error } = useSelector((state) => state.waitlist);
   const [email, setEmail] = useState("");
+
   //   const [submitted, setSubmitted] = useState(false);
   //   const [loading, setLoading] = useState(false);
 
@@ -18,9 +18,19 @@ export default function WaitlistSection() {
     // await new Promise((res) => setTimeout(res, 1000));
     // setLoading(false);
     // setSubmitted(true);
-    dispatch(setSubmitted());
-    console.log("Waitlist email submitted:", email);
-    dispatch(stopLoading());
+    dispatch(setLoading());
+    dispatch(clearError())
+    const { error } = await supabase.from("waitlist").insert([{ email }]);
+
+    if (error) {
+      console.error("Submission error:", error.message);
+      dispatch(setError(error));
+      // You can show an error toast or message here
+    } else {
+      dispatch(setSubmitted());
+      console.log("Email submitted:", email);
+    }
+    dispatch(setLoading());
   };
 
   return (
@@ -38,6 +48,12 @@ export default function WaitlistSection() {
         </p>
 
         {!submitted ? (
+            <>
+            {error && (
+                <p className="text-base text-red-400">
+                  Error submitting email. Ensure a unique email is inputed!
+                </p>
+              )}
           <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
             <input
               type="email"
@@ -54,6 +70,7 @@ export default function WaitlistSection() {
               {loading ? "Joining..." : "Join Waitlist"}
             </button>
           </div>
+          </>
         ) : (
           <div className="bg-green-500/20 border border-green-500/50 rounded-lg p-6 max-w-md mx-auto">
             <p className="text-green-400 font-semibold text-lg">

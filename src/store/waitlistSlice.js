@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   submitted: false,
   loading: false,
+  error: "",
 };
 
 const waitlistSlice = createSlice({
@@ -10,14 +11,20 @@ const waitlistSlice = createSlice({
   initialState,
   reducers: {
     setSubmitted: (state) => {
-        state.loading = true;
       state.submitted = true;
     },
-    stopLoading: (state) => {
-        state.loading = false;
-    }
+    setLoading: (state) => {
+      state.loading = !state.loading;
+    },
+    setError: (state, action) => {
+      state.error = action.payload;
+    },
+    clearError: (state) => {
+      state.error = "";
+    },
   },
 });
 
-export const { setSubmitted, stopLoading } = waitlistSlice.actions;
+export const { setSubmitted, setLoading, setError, clearError } =
+  waitlistSlice.actions;
 export default waitlistSlice.reducer;
