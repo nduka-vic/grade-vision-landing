@@ -66,7 +66,7 @@ export default function Hero() {
                 </p>
               </div>
             ) : (
-              <div className="max-w-md w-full mx-auto">
+              <div className="max-w-md w-full mx-auto mb-2">
                 {error && (
                   <p className="text-base text-red-400">
                     Error submitting email. Ensure a unique email is inputed!
@@ -81,7 +81,7 @@ export default function Hero() {
               rel="noopener noreferrer"
               className="inline-flex items-center text-pink-400 hover:text-pink-300 transition-colors font-medium text-lg underline underline-offset-4"
             >
-              Drop Your 2 Cents 💬
+              Tell Us What You Need 💬
               <ArrowRight className="w-5 h-5 ml-2" />
             </a>
           </div>

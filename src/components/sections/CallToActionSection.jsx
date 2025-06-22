@@ -14,7 +14,7 @@ export default function CallToActionSection() {
           make it even better.
         </p>
 
-        {/* <a
+        <a
           href="https://forms.gle/QHdy7P2YxGmVwNdX6"
           target="_blank"
           rel="noopener noreferrer"
@@ -25,12 +25,12 @@ export default function CallToActionSection() {
             size="lg"
             className="px-6 py-3 font-semibold border-2 border-white/30 text-white bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all duration-300 rounded-xl flex items-center"
           >
-            Drop Your 2 Cents 💬
+            Tell Us What You Need 💬
             <ArrowRight className="w-5 h-5 ml-2" />
           </button>
-        </a> */}
+        </a>
 
-        <a
+        {/* <a
           href="https://forms.gle/QHdy7P2YxGmVwNdX6"
           target="_blank"
           rel="noopener noreferrer"
@@ -38,7 +38,7 @@ export default function CallToActionSection() {
         >
           Drop Your 2 Cents 💬
           <ArrowRight className="w-5 h-5 ml-2" />
-        </a>
+        </a> */}
       </div>
     </section>
   );
