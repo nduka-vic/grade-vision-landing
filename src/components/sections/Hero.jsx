@@ -10,6 +10,7 @@ import {
 } from "../../store/waitlistSlice";
 import { supabase } from "../../lib/supabaseClient";
 import FadeInWrapper from "../FadeInWrapper";
+import { ArrowRight } from "lucide-react";
 
 export default function Hero() {
   const dispatch = useDispatch();
@@ -37,23 +38,23 @@ export default function Hero() {
       <GradientOverlay />
 
       <div className="relative z-10 text-center max-w-4xl mx-auto space-y-8">
-        <FadeInWrapper>
+        <FadeInWrapper delay={0.4}>
           <div className="space-y-4">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-white via-pink-200 to-purple-200 bg-clip-text text-transparent leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-white via-pink-200 to-purple-200 bg-clip-text text-transparent leading-snug sm:leading-tight tracking-tight">
               You entered school with big dreams.
               <br />
               <span className="text-pink-400">
                 Let's help you finish strong.
               </span>
             </h1>
-            <p className="text-base sm:text-xl text-gray-300 max-w-xl mx-auto mt-4 sm:mt-6">
+            <p className="text-sm sm:text-lg text-gray-300 max-w-xl mx-auto mt-4 sm:mt-6">
               Set your CGPA goal. Forecast your semester. Hit your academic
               target.
             </p>
           </div>
         </FadeInWrapper>
 
-        <FadeInWrapper>
+        <FadeInWrapper delay={0.4}>
           <div className="pt-8">
             {submitted ? (
               <div className="bg-green-500/20 border border-green-500/50 rounded-lg p-4 max-w-md mx-auto">
@@ -74,6 +75,15 @@ export default function Hero() {
                 <EmailForm onSubmit={handleEmailSubmit} loading={loading} />
               </div>
             )}
+            <a
+              href="https://forms.gle/QHdy7P2YxGmVwNdX6"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center text-pink-400 hover:text-pink-300 transition-colors font-medium text-lg underline underline-offset-4"
+            >
+              Drop Your 2 Cents 💬
+              <ArrowRight className="w-5 h-5 ml-2" />
+            </a>
           </div>
         </FadeInWrapper>
       </div>

@@ -5,7 +5,7 @@ import FadeInWrapper from "../FadeInWrapper";
 export default function StudentStory() {
   return (
     <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
-      <FadeInWrapper delay={0.2}>
+      <FadeInWrapper delay={0.4}>
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Text Content */}
           <div className="space-y-6">
@@ -17,14 +17,14 @@ export default function StudentStory() {
             </h2>
             <div className="space-y-4 text-gray-300 text-lg leading-relaxed">
               <p>
-                Amaka started her Computer Science degree at the University of
-                Lagos with one clear goal: graduate with first-class honors and
-                land her dream tech job.
+                Imagine Amaka, who started her Computer Science degree at the
+                University of Lagos with one clear goal: graduate with
+                first-class honors and land her dream tech job.
               </p>
               <p>
                 But by her third year, she realized she had no clear idea where
-                she stood academically. Her CGPA calculations were guesswork,
-                and she couldn't tell if she was on track for her goals.
+                she stood academically. Her CGPA projections were guesswork, and
+                she couldn't tell if she was on track for her goals.
               </p>
               <p className="text-pink-400 font-semibold">
                 That's when she discovered Grade Vision — and everything

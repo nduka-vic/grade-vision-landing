@@ -7,6 +7,7 @@ import {
   BookOpen,
   Award,
 } from "lucide-react";
+import FadeInWrapper from "../FadeInWrapper";
 
 const FeatureCard = ({ icon: Icon, title, description }) => (
   <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-xl p-6 hover:border-pink-500/50 transition-colors duration-300">
@@ -35,21 +36,27 @@ export default function SolutionSection() {
 
         {/* Feature Cards */}
         <div className="grid md:grid-cols-3 gap-8">
-          <FeatureCard
-            icon={Target}
-            title="Set Clear Goals"
-            description="Define your target CGPA and let Grade Vision show you exactly what it takes to get there."
-          />
-          <FeatureCard
-            icon={Calculator}
-            title="Forecast Semesters"
-            description="Plan ahead with semester-by-semester grade forecasting tailored to your academic program."
-          />
-          <FeatureCard
-            icon={TrendingUp}
-            title="Track Progress"
-            description="Monitor your performance in real-time and stay motivated as you work toward your goals."
-          />
+          <FadeInWrapper delay={0.4}>
+            <FeatureCard
+              icon={Target}
+              title="Set Clear Goals"
+              description="Define your target CGPA and let Grade Vision show you exactly what it takes to get there."
+            />
+          </FadeInWrapper>
+          <FadeInWrapper delay={0.4}>
+            <FeatureCard
+              icon={Calculator}
+              title="Forecast Semesters"
+              description="Plan ahead with semester-by-semester grade forecasting tailored to your academic program."
+            />
+          </FadeInWrapper>
+          <FadeInWrapper delay={0.4}>
+            <FeatureCard
+              icon={TrendingUp}
+              title="Track Progress"
+              description="Monitor your performance in real-time and stay motivated as you work toward your goals."
+            />
+          </FadeInWrapper>
         </div>
 
         {/* Nigerian Focus Card */}

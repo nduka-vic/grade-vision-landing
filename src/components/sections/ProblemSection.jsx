@@ -1,4 +1,5 @@
 import React from "react";
+import FadeInWrapper from "../FadeInWrapper";
 
 const ProblemCard = ({ number, title, description }) => (
   <div className="flex items-start space-x-4 p-6 bg-gray-800/50 backdrop-blur-sm rounded-xl border border-gray-700 hover:border-pink-500/50 transition duration-300">
@@ -27,21 +28,27 @@ export default function ProblemSection() {
         </div>
 
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-          <ProblemCard
-            number="1"
-            title="CGPA Mystery"
-            description="Many students don’t understand how their CGPA is calculated or what grades they need to achieve their goals."
-          />
-          <ProblemCard
-            number="2"
-            title="No Monitoring"
-            description="Without active tracking, students only discover they're off-track when it’s too late to course-correct."
-          />
-          <ProblemCard
-            number="3"
-            title="Unclear Targets"
-            description="Setting vague goals like 'do better' instead of specific, measurable academic targets."
-          />
+          <FadeInWrapper delay={0.4}>
+            <ProblemCard
+              number="1"
+              title="CGPA Mystery"
+              description="Many students don’t understand how their CGPA is calculated or what grades they need to achieve their goals."
+            />
+          </FadeInWrapper>
+          <FadeInWrapper delay={0.4}>
+            <ProblemCard
+              number="2"
+              title="No Monitoring"
+              description="Without active tracking, students only discover they're off-track when it’s too late to course-correct."
+            />
+          </FadeInWrapper>
+          <FadeInWrapper delay={0.4}>
+            <ProblemCard
+              number="3"
+              title="Unclear Targets"
+              description="Setting vague goals like 'do better' instead of specific, measurable academic targets."
+            />
+          </FadeInWrapper>
         </div>
       </div>
     </section>
