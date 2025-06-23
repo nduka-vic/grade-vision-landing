@@ -52,12 +52,12 @@ export default function Hero() {
 
         {/* Download Button */}
         <a href="#" className="playstore-btn">
-          {/* <FaGooglePlay className="w-5 h-5 mr-2" /> */}
-          <img
+          <FaGooglePlay className="w-5 h-5 mr-2" />
+          {/* <img
             src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
-            alt="Get on Play Store"
-          />
-          Get on Play Store
+            alt="Play Store Soon"
+          /> */}
+          Play Store Soon
         </a>
       </header>
 
