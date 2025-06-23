@@ -1,5 +1,5 @@
-import logo from "../../assets/images/logo.png";
-import { FaXTwitter, FaFacebookF, FaInstagram } from "react-icons/fa6"; // optional icon import
+// import logo from "../../assets/images/logo.png";
+import { FaXTwitter, FaFacebookF, FaInstagram } from "react-icons/fa6";
 
 const FooterSection = () => {
   return (
@@ -8,7 +8,7 @@ const FooterSection = () => {
         {/* Logo */}
         <div className="flex items-center space-x-3">
           <img
-            src={logo}
+            src="/textLogo.png"
             alt="GradeVision Logo"
             width="40"
             height="40"

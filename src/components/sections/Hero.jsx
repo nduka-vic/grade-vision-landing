@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import GradientOverlay from "../GradientOverlay";
 import EmailForm from "../EmailForm";
 import { useSelector, useDispatch } from "react-redux";
@@ -11,7 +11,7 @@ import {
 import { supabase } from "../../lib/supabaseClient";
 import FadeInWrapper from "../FadeInWrapper";
 import { ArrowRight } from "lucide-react";
-import { FaWhatsapp } from "react-icons/fa";
+import { FaWhatsapp, FaGooglePlay } from "react-icons/fa";
 
 import "../../styles/custom.css";
 
@@ -37,10 +37,33 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 pb-12 sm:pt-28 sm:pb-20">
+    <section className="relative min-h-screen px-4 sm:px-6 lg:px-8 pt-20 pb-12 sm:pt-28 sm:pb-20">
       <GradientOverlay />
 
-      <div className="relative z-10 text-center max-w-4xl mx-auto space-y-8">
+      {/* === HEADER === */}
+      <header className="absolute top-0 left-0 w-full flex items-center justify-between px-4 sm:px-8 py-4 z-20 bg-transparent">
+        {/* Logo */}
+        <a href="/" className="flex items-center space-x-2">
+          <img src="/logo.png" alt="Logo" className="h-7 sm:h-8 w-auto" />
+          <span className="text-white text-lg sm:text-xl font-semibold">
+            Grade Vision
+          </span>
+        </a>
+
+        {/* Download Button */}
+        <a
+          href="https://play.google.com/store" // Replace with your real link
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-purple-600 to-violet-500 text-white font-medium text-sm sm:text-base shadow-lg hover:scale-105 transition-transform"
+        >
+          <FaGooglePlay className="w-5 h-5 mr-2" />
+          Get on Play Store
+        </a>
+      </header>
+
+      {/* === HERO CONTENT === */}
+      <div className="relative z-10 text-center max-w-4xl mx-auto space-y-8 pt-24 sm:pt-32">
         <FadeInWrapper delay={0.4}>
           <div className="space-y-4">
             <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-white via-pink-200 to-purple-200 bg-clip-text text-transparent leading-tight sm:leading-snug tracking-tight">
@@ -79,6 +102,7 @@ export default function Hero() {
                 <EmailForm onSubmit={handleEmailSubmit} loading={loading} />
               </div>
             )}
+
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mt-6">
               {/* Tell Us What You Need */}
               <a
@@ -87,7 +111,7 @@ export default function Hero() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center text-pink-400 hover:text-pink-300 transition-colors font-medium text-lg underline underline-offset-4"
               >
-                Tell Us What You Need 💬
+                💬 Tell Us What You Need
                 <ArrowRight className="w-5 h-5 ml-2" />
               </a>
 
