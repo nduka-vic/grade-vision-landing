@@ -10,9 +10,7 @@ const FooterSection = () => {
           <img
             src="/textLogo.png"
             alt="GradeVision Logo"
-            width="40"
-            height="40"
-            className="w-10 h-10 object-contain"
+            className="h-8 sm:h-8 w-auto"
           />
           <span className="text-xl font-bold tracking-tight">GradeVision</span>
         </div>

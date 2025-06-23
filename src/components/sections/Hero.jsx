@@ -44,20 +44,19 @@ export default function Hero() {
       <header className="absolute top-0 left-0 w-full flex items-center justify-between px-4 sm:px-8 py-4 z-20 bg-transparent">
         {/* Logo */}
         <a href="/" className="flex items-center space-x-2">
-          <img src="/logo.png" alt="Logo" className="h-7 sm:h-8 w-auto" />
+          <img src="/logo.png" alt="Logo" className="h-8 sm:h-8 w-auto" />
           <span className="text-white text-lg sm:text-xl font-semibold">
-            Grade Vision
+            GradeVision
           </span>
         </a>
 
         {/* Download Button */}
-        <a
-          href="https://play.google.com/store" // Replace with your real link
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-purple-600 to-violet-500 text-white font-medium text-sm sm:text-base shadow-lg hover:scale-105 transition-transform"
-        >
-          <FaGooglePlay className="w-5 h-5 mr-2" />
+        <a href="#" className="playstore-btn">
+          {/* <FaGooglePlay className="w-5 h-5 mr-2" /> */}
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+            alt="Get on Play Store"
+          />
           Get on Play Store
         </a>
       </header>
