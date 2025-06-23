@@ -13,6 +13,8 @@ import FadeInWrapper from "../FadeInWrapper";
 import { ArrowRight } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 
+import "../../styles/custom.css";
+
 export default function Hero() {
   const dispatch = useDispatch();
   const { submitted, loading, error } = useSelector((state) => state.waitlist);
@@ -95,7 +97,12 @@ export default function Hero() {
                 rel="noopener noreferrer"
                 className="inline-block"
               >
-                <button className="px-6 py-3 font-semibold text-white bg-[#25D366] hover:bg-[#1ebd5a] transition-all duration-300 rounded-xl flex items-center">
+                {/* <button className="px-6 py-3 font-semibold text-white bg-[#25D366] hover:bg-[#1ebd5a] transition-all duration-300 rounded-xl flex items-center">
+                  <FaWhatsapp className="w-5 h-5 mr-2" />
+                  Join Beta Test Group
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </button> */}
+                <button className="whatsapp-btn">
                   <FaWhatsapp className="w-5 h-5 mr-2" />
                   Join Beta Test Group
                   <ArrowRight className="w-5 h-5 ml-2" />
