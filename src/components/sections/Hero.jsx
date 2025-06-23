@@ -93,11 +93,13 @@ export default function Hero() {
                 href="https://chat.whatsapp.com/KfddjidSm1Y4mI7xNGqNMt"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center text-green-500 hover:text-green-400 transition-colors font-medium text-lg underline underline-offset-4"
+                className="inline-block"
               >
-                <FaWhatsapp className="w-5 h-5 mr-2" />
-                Join Beta Test Group
-                <ArrowRight className="w-5 h-5 ml-2" />
+                <button className="px-6 py-3 font-semibold text-white bg-[#25D366] hover:bg-[#1ebd5a] transition-all duration-300 rounded-xl flex items-center">
+                  <FaWhatsapp className="w-5 h-5 mr-2" />
+                  Join Beta Test Group
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </button>
               </a>
             </div>
           </div>
