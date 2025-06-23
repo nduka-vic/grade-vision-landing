@@ -37,20 +37,21 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-24 pb-16 sm:pt-32 sm:pb-24">
+    <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 pb-12 sm:pt-28 sm:pb-20">
       <GradientOverlay />
 
       <div className="relative z-10 text-center max-w-4xl mx-auto space-y-8">
         <FadeInWrapper delay={0.4}>
           <div className="space-y-4">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-white via-pink-200 to-purple-200 bg-clip-text text-transparent leading-snug sm:leading-tight tracking-tight">
+            <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-white via-pink-200 to-purple-200 bg-clip-text text-transparent leading-tight sm:leading-snug tracking-tight">
               You entered school with big dreams.
               <br />
               <span className="text-pink-400">
                 Let's help you finish strong.
               </span>
             </h1>
-            <p className="text-sm sm:text-lg text-gray-300 max-w-xl mx-auto mt-4 sm:mt-6">
+
+            <p className="text-base sm:text-lg text-gray-300 max-w-md mx-auto mt-4 sm:mt-6">
               Set your CGPA goal. Forecast your semester. Hit your academic
               target.
             </p>
@@ -78,7 +79,7 @@ export default function Hero() {
                 <EmailForm onSubmit={handleEmailSubmit} loading={loading} />
               </div>
             )}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mt-6">
               {/* Tell Us What You Need */}
               <a
                 href="https://forms.gle/QHdy7P2YxGmVwNdX6"
@@ -97,11 +98,6 @@ export default function Hero() {
                 rel="noopener noreferrer"
                 className="inline-block"
               >
-                {/* <button className="px-6 py-3 font-semibold text-white bg-[#25D366] hover:bg-[#1ebd5a] transition-all duration-300 rounded-xl flex items-center">
-                  <FaWhatsapp className="w-5 h-5 mr-2" />
-                  Join Beta Test Group
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </button> */}
                 <button className="whatsapp-btn">
                   <FaWhatsapp className="w-5 h-5 mr-2" />
                   Join Beta Test Group

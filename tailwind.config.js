@@ -10,5 +10,5 @@ export default {
       scrollBehavior: ["responsive"],
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };

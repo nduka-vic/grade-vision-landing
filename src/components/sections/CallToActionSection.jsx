@@ -23,7 +23,7 @@ export default function CallToActionSection() {
             rel="noopener noreferrer"
             className="inline-block"
           >
-            <button className="px-6 py-3 font-semibold border-2 border-white/30 text-white bg-white/10 hover:bg-white/20 transition-all duration-300 rounded-xl flex items-center">
+            <button className="tell-us-btn">
               💬 Tell Us What You Need
               <ArrowRight className="w-5 h-5 ml-2" />
             </button>
@@ -36,7 +36,7 @@ export default function CallToActionSection() {
             rel="noopener noreferrer"
             className="inline-block"
           >
-            <button className="px-6 py-3 font-semibold text-white bg-[#25D366] hover:bg-[#1ebd5a] transition-all duration-300 rounded-xl flex items-center">
+            <button className="whatsapp-btn">
               <FaWhatsapp className="w-5 h-5 mr-2" />
               Join Beta Test Group
               <ArrowRight className="w-5 h-5 ml-2" />

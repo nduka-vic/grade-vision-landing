@@ -12,3 +12,31 @@
 .whatsapp-btn:hover {
   background-color: #1ebe58;
 }
+
+.tell-us-btn {
+  background-color: rgba(255, 255, 255, 0.1); /* subtle frosted glass effect */
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  transition: background-color 0.3s ease;
+  backdrop-filter: blur(6px); /* glassy blur effect */
+}
+
+.tell-us-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 640px) {
+  h1 {
+    line-height: 1.3 !important;
+  }
+
+  .whatsapp-btn {
+    font-size: 0.875rem; /* text-sm */
+    padding: 0.6rem 1rem;
+  }
+}
