@@ -67,7 +67,7 @@ export default function Hero() {
                 </p>
               </div>
             ) : (
-              <div className="max-w-md w-full mx-auto mb-2">
+              <div className="max-w-md w-full mx-auto mb-4">
                 {error && (
                   <p className="text-base text-red-400">
                     Error submitting email. Ensure a unique email is inputed!

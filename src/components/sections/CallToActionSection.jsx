@@ -36,7 +36,7 @@ export default function CallToActionSection() {
             rel="noopener noreferrer"
             className="inline-block"
           >
-            <button className="px-6 py-3 font-semibold text-white bg-green-600 hover:bg-green-500 rounded-xl transition-all duration-300 flex items-center">
+            <button className="px-6 py-3 font-semibold text-white bg-[#25D366] hover:bg-[#1ebe5d] rounded-xl transition-all duration-300 flex items-center">
               <FaWhatsapp className="w-5 h-5 mr-2" />
               Join Beta Test Group
               <ArrowRight className="w-5 h-5 ml-2" />
