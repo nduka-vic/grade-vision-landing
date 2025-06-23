@@ -11,6 +11,7 @@ import {
 import { supabase } from "../../lib/supabaseClient";
 import FadeInWrapper from "../FadeInWrapper";
 import { ArrowRight } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 
 export default function Hero() {
   const dispatch = useDispatch();
@@ -75,15 +76,30 @@ export default function Hero() {
                 <EmailForm onSubmit={handleEmailSubmit} loading={loading} />
               </div>
             )}
-            <a
-              href="https://forms.gle/QHdy7P2YxGmVwNdX6"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center text-pink-400 hover:text-pink-300 transition-colors font-medium text-lg underline underline-offset-4"
-            >
-              Tell Us What You Need 💬
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </a>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6">
+              {/* Tell Us What You Need */}
+              <a
+                href="https://forms.gle/QHdy7P2YxGmVwNdX6"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-pink-400 hover:text-pink-300 transition-colors font-medium text-lg underline underline-offset-4"
+              >
+                Tell Us What You Need 💬
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </a>
+
+              {/* WhatsApp Beta Test Group */}
+              <a
+                href="https://chat.whatsapp.com/KfddjidSm1Y4mI7xNGqNMt"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-green-500 hover:text-green-400 transition-colors font-medium text-lg underline underline-offset-4"
+              >
+                <FaWhatsapp className="w-5 h-5 mr-2" />
+                Join Beta Test Group
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </a>
+            </div>
           </div>
         </FadeInWrapper>
       </div>
